@@ -78,22 +78,11 @@ if ($pn>3){
 	echo "<a href=\"".$scr."?pn=1".(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"> Первая </a>";
 }
 
-if ($pn>2){
-	echo "<a href=\"".$scr."?pn=".($pn-2).(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"> ".($pn-2)." </a>";
-}
-
-if ($pn>1){
-	echo "<a href=\"".$scr."?pn=".($pn-1).(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"> ".($pn-1)." </a>";
-}
-
-echo "<a href=\"".$scr."?pn=".$pn.(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"><b><i> ".$pn." </i></b></a>";
-
-if ($pn+1<=$pages){
-	echo "<a href=\"".$scr."?pn=".($pn+1).(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"> ".($pn+1)." </a>";
-}
-
-if ($pn+2<=$pages){
-	echo "<a href=\"".$scr."?pn=".($pn+2).(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\">".($pn+2)."</a>";
+for ($j = -2; $j <= 2; $j++) {
+	$thisPage = $pn + $j;
+	if ($thisPage > 0 && $thisPage <= $pages) {
+		echo "<a href=\"" . $scr . "?pn=" . $thisPage . (isset($_GET['hide']) ? "&hide=" . $_GET['hide'] : "") . "\"> " . $thisPage . " </a>";
+	}
 }
 
 if ($pn+3<=$pages){
