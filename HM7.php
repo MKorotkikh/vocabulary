@@ -89,6 +89,6 @@ if ($pn+3<=$pages){
 	echo "<a href=\"".$scr."?pn=".$pages.(isset($_GET['hide'])? "&hide=".$_GET['hide'] : "")."\"> Последняя </a>";	
 }
 
-
+ 
 ?>
 </pre>
